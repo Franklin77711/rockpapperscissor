@@ -12,24 +12,30 @@
     <div class="content">
         <h2>Choose you weapon</h2>
         <h3>First to score 5 points wins the game!</h3>
+        <label id="description"></label>
         <div class="battle">
             <div class="result">
-            <div>❔</div>
-            <label>Player: 0</label>
+            <div class="result-human">❔</div>
+            <label class="points-human">Player: 0</label>
             </div>
             <div class="result">
-            <div>❔</div>
-            <label>Computer: 0</label>
+            <div class="result-computer">❔</div>
+            <label class="points-computer">Computer: 0</label>
             </div>
         </div>
         <div class="weapons">
-        <div class="signal">✊</div>
-        <div class="signal">✋</div>
-        <div class="signal">✌</div>
+        <button class="signal" id="rock">✊</button>
+        <button class="signal" id="paper">✋</button>
+        <button class="signal" id="scissor">✌</button>
         </div>
     </div>
     <div class="footer">
         <p>Nagy Robert | The Odin Project</p>
+    </div>
+
+    <div class="game-over">
+        <p class="gameover-text"></p>
+        <button class="again-btn">Try Again</button>
     </div>
         <script src="rpsgame.js" async defer></script>
     </body>
