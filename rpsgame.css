@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0px;
+}
+
+.header{
+    background-color: black;
+    color: darkorange;
+    padding: 25px;
+    text-align: center;
+    font-size: 32px;
+}
+
+h1{
+    margin: 0;
+}
+
+.content{
+    background-color: #403c32;
+    color: white;
+    flex: 1;
+    text-align: center;
+}
+
+.battle, .weapons{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+.battle{
+    gap: 100px;
+}
+
+.result {
+    margin: 20px;
+    gap: 100px;
+}
+.result div{
+    font-size: 55px;
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+    margin-bottom: 10px;
+}
+
+.weapons{
+    justify-content: center;
+    gap: 100px;
+    
+    
+}
+
+.signal{
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 55px;
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+
+
+.footer{
+    background-color: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
