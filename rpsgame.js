@@ -1,17 +1,27 @@
+// declaration
+const resultComputerText = document.querySelector(".result-computer");
+const resultHumanText = document.querySelector(".result-human");
+const resultDescription = document.querySelector("#description");
+const pointHuman = document.querySelector(".points-human");
+const pointComputer = document.querySelector(".points-computer");
+const gameOverText = document.querySelector(".gameover-text");
+const gameOverDiv = document.querySelector(".game-over");
+
 // computer's-part---------------------------------------
 function randomNumber(){
     return Math.floor(Math.random()*3)
 }
 
 function computerResult(){
+
 if(randomNumber() == 0){
-    document.querySelector(".result-computer").textContent = "✊";
+    resultComputerText.textContent = "✊";
 }
 else if(randomNumber() == 1){
-    document.querySelector(".result-computer").textContent = "✋";
+    resultComputerText.textContent = "✋";
 }
 else{
-    document.querySelector(".result-computer").textContent = "✌";
+    resultComputerText.textContent = "✌";
 }
 }
 let rock = document.querySelector("#rock");
@@ -33,50 +43,49 @@ scissor.addEventListener("click", () => {
 // human-pick------------------------------------------------------
 
 function rockClicked(){
-    document.querySelector(".result-human").textContent = "✊";
+    resultHumanText.textContent = "✊";
 }
 function paperClicked(){
-    document.querySelector(".result-human").textContent = "✋";
+    resultHumanText.textContent = "✋";
 }
 function scissorClicked(){
-    document.querySelector(".result-human").textContent = "✌";
+    resultHumanText.textContent = "✌";
 }
 //result-counter-----------------------------------------------
 let humanPoint = 0;
 let computerPoint = 0;
 function match(){
-    if (document.querySelector(".result-human").textContent == document.querySelector(".result-computer").textContent){
-        document.querySelector("#description").textContent = "It's a tie!";
-    } else if(document.querySelector(".result-human").textContent == "✊" && document.querySelector(".result-computer").textContent == "✋"){
-        document.querySelector("#description").textContent = "Paper stronger then rock. Point to the computer";
+    if (resultHumanText.textContent == resultComputerText.textContent){
+        resultDescription.textContent = "It's a tie!";
+    } else if(resultHumanText.textContent == "✊" && resultComputerText.textContent == "✋"){
+        resultDescription.textContent = "Paper stronger then rock. Point to the computer";
         computerPoint++;
-    }else if(document.querySelector(".result-human").textContent == "✊" && document.querySelector(".result-computer").textContent == "✌"){
-        document.querySelector("#description").textContent = "Rock is stronger then scissor. Point to the Player";
+    }else if(resultHumanText.textContent == "✊" && resultComputerText.textContent == "✌"){
+        resultDescription.textContent = "Rock is stronger then scissor. Point to the Player";
         humanPoint++;
-    }else if(document.querySelector(".result-human").textContent == "✋" && document.querySelector(".result-computer").textContent == "✌"){
-        document.querySelector("#description").textContent = "Scissor is stronger then paper. Point to the Computer";
+    }else if(resultHumanText.textContent == "✋" && resultComputerText.textContent == "✌"){
+        resultDescription.textContent = "Scissor is stronger then paper. Point to the Computer";
         computerPoint++;
-    }else if(document.querySelector(".result-human").textContent == "✋" && document.querySelector(".result-computer").textContent == "✊"){
-        document.querySelector("#description").textContent = "Paper is stronger then rock. Point to the Player";
+    }else if(resultHumanText.textContent == "✋" && resultComputerText.textContent == "✊"){
+        resultDescription.textContent = "Paper is stronger then rock. Point to the Player";
         humanPoint++;
-    }else if(document.querySelector(".result-human").textContent == "✌" && document.querySelector(".result-computer").textContent == "✊"){
-        document.querySelector("#description").textContent = "Rock is stronger then scissor. Point to the Computer";
+    }else if(resultHumanText.textContent == "✌" && resultComputerText.textContent == "✊"){
+        resultDescription.textContent = "Rock is stronger then scissor. Point to the Computer";
         computerPoint++;
     }else {
-        document.querySelector("#description").textContent = "Scissor is stronger then paper Point to the Player";
+        resultDescription.textContent = "Scissor is stronger then paper Point to the Player";
         humanPoint++;
     }
 
-    document.querySelector(".points-computer").textContent = `Computer: ${computerPoint}`;
-    document.querySelector(".points-human").textContent = `Player: ${humanPoint}`;
+    pointComputer.textContent = `Computer: ${computerPoint}`;
+    pointHuman.textContent = `Player: ${humanPoint}`;
 //Game-Over------------------------------------------------------------------------------------------------
     function gameOver(){
-        if (document.querySelector(".points-human").textContent == `Player: 5`){
-            document.querySelector(".gameover-text").textContent = "Congratulation!"
-            document.querySelector(".game-over").style.visibility = "visible";
+        gameOverDiv.style.visibility = "visible";
+        if (pointHuman.textContent == `Player: 5`){
+            gameOverText.textContent = "Congratulation!"
         } else{
-            document.querySelector(".gameover-text").textContent = "Game Over!"
-            document.querySelector(".game-over").style.visibility = "visible";
+            gameOverText.textContent = "Game Over!"
         }
     }
 
@@ -90,12 +99,12 @@ document.querySelector(".again-btn").addEventListener('click', restartGame);
 function restartGame(){
     humanPoint = 0;
     computerPoint = 0;
-    document.querySelector(".points-computer").textContent = `Computer: ${computerPoint}`;
-    document.querySelector(".points-human").textContent = `Player: ${humanPoint}`;
-    document.querySelector("#description").textContent = "";
-    document.querySelector(".result-human").textContent == "❔";
-    document.querySelector(".result-computer").textContent == "❔";
-    document.querySelector(".game-over").style.visibility = "hidden";
+    pointComputer.textContent = `Computer: ${computerPoint}`;
+    pointHuman.textContent = `Player: ${humanPoint}`;
+    resultDescription.textContent = "";
+    resultHumanText.textContent == "❔";
+    resultComputerText.textContent == "❔";
+    gameOverDiv.style.visibility = "hidden";
 
 }
 
