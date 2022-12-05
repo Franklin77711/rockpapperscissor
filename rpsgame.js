@@ -6,6 +6,8 @@ const pointHuman = document.querySelector(".points-human");
 const pointComputer = document.querySelector(".points-computer");
 const gameOverText = document.querySelector(".gameover-text");
 const gameOverDiv = document.querySelector(".game-over");
+let overDiv = document.querySelector(".overlay-div");
+const body = document.body;
 
 // computer's-part---------------------------------------
 function randomNumber(){
@@ -26,20 +28,20 @@ else{
 }
 let rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
-    computerResult(),
-    rockClicked(),
-    match()
+    rockClicked()
+    clickcall()
     });
 let paper = document.querySelector("#paper");
-paper.addEventListener("click",() => {
-    computerResult(),
-    paperClicked(),
-    match()});
+paper.addEventListener("click", () => {
+    paperClicked()
+    clickcall()
+    });
+
 let scissor = document.querySelector("#scissor");
 scissor.addEventListener("click", () => {
-    computerResult(),
-    scissorClicked(),
-    match()});
+    scissorClicked()
+    clickcall()
+    });
 // human-pick------------------------------------------------------
 
 function rockClicked(){
@@ -54,6 +56,7 @@ function scissorClicked(){
 //result-counter-----------------------------------------------
 let humanPoint = 0;
 let computerPoint = 0;
+
 function match(){
     if (resultHumanText.textContent == resultComputerText.textContent){
         resultDescription.textContent = "It's a tie!";
@@ -79,18 +82,26 @@ function match(){
 
     pointComputer.textContent = `Computer: ${computerPoint}`;
     pointHuman.textContent = `Player: ${humanPoint}`;
+}
 //Game-Over------------------------------------------------------------------------------------------------
+    function overlayBckg(){
+        overDiv = document.createElement('div');
+        overDiv.setAttribute('id', 'overlay-div');
+        overDiv.style.display = "block";
+        body.appendChild(overDiv);
+
+        }
+    
+
+
     function gameOver(){
+        overlayBckg();
         gameOverDiv.style.visibility = "visible";
         if (pointHuman.textContent == `Player: 5`){
             gameOverText.textContent = "Congratulation!"
         } else{
             gameOverText.textContent = "Game Over!"
         }
-    }
-
-    if (computerPoint == 5 || humanPoint == 5){
-        gameOver();
     }
 //Game-Restart------------------------------------------------------------------------------------------------------
 
@@ -105,20 +116,15 @@ function restartGame(){
     resultHumanText.textContent == "❔";
     resultComputerText.textContent == "❔";
     gameOverDiv.style.visibility = "hidden";
+    overDiv.style.display = "none";
 
 }
+//click call----------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
+function clickcall(){
+    computerResult(),
+    match()
+    if (computerPoint == 5 || humanPoint == 5){
+        gameOver();
+    }
 }
-
